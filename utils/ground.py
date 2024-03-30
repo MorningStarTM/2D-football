@@ -1,5 +1,6 @@
 import pygame
 import sys
+import math
 
 # Initialize Pygame
 pygame.init()
@@ -52,6 +53,24 @@ pygame.draw.line(screen, (255, 255, 255), (SCREEN_WIDTH // 2, 50), (SCREEN_WIDTH
 pygame.draw.rect(screen, (255, 255, 255), (0, (SCREEN_HEIGHT/2)-60, 50, 150))
 pygame.draw.rect(screen, (255, 255, 255), (SCREEN_WIDTH - 50, (SCREEN_HEIGHT/2)-60, 50, 150))
 
+center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)  # Center of the arc
+radius = 100  # Radius of the arc
+start_angle_degrees = -29  # Start angle of the arc in degrees
+start_angle_radians = math.radians(start_angle_degrees)  # Convert start angle to radians
+end_angle_radians = start_angle_radians + math.pi / 3  # End angle of the arc (add 45 degrees)
+thickness = 2  # Thickness of the arc  
+
+
+radius = 100  # Radius of the arc
+start_angle_degrees2 = 150  # Start angle of the arc in degrees
+start_angle_radians2 = math.radians(start_angle_degrees2)  # Convert start angle to radians
+end_angle_radians2 = start_angle_radians2 + math.pi / 3  # End angle of the arc (add 45 degrees)
+
+pygame.draw.arc(screen, (255, 255, 255), (-12, center[1] - 80, radius * 2, radius * 2),
+                    start_angle_radians, end_angle_radians, 2)
+
+pygame.draw.arc(screen, (255, 255, 255), (SCREEN_WIDTH-185, center[1] - 80, radius * 2, radius * 2),
+                    start_angle_radians2, end_angle_radians2, thickness)
 
 pygame.display.flip()
 
